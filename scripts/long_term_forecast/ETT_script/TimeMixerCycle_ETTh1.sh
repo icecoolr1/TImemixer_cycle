@@ -47,8 +47,8 @@ common_args=(
   --down_sampling_method conv    # 改为可学习的卷积下采样
   --cycle_lens $cycle_lens       # 新增周期配置
   --fusion_type $fusion_type     # 融合策略
-  --phase_dropout $phase_dropout
-  --ortho_weight $ortho_weight
+#  --phase_dropout $phase_dropout
+#  --ortho_weight $ortho_weight
   --use_amp                      # 启用混合精度训练
 )
 
