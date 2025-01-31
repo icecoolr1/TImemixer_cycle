@@ -59,7 +59,7 @@ class MultiScaleCycleBlock(nn.Module):
         return self.norm(fused)
 
 
-class TimeMixerV2(nn.Module):
+class Model(nn.Module):
     """无季节分解的纯周期趋势模型"""
 
     def __init__(self, configs):
