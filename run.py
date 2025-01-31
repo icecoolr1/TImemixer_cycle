@@ -120,10 +120,10 @@ if args.use_gpu and args.use_multi_gpu:
     args.gpu = args.device_ids[0]
 
 def parse_cycle_lens(cycle_str):
-    """将字符串 '24_48 168_84' 转换为 [[24,48], [168,84]]"""
+    """将字符串 '24_48,168_84' 转换为 [[24,48], [168,84]]"""
     return [
-        list(map(int, layer.split('_'))) 
-        for layer in cycle_str.split()
+        list(map(int, layer.split('_')))
+        for layer in cycle_str.split(',')
     ]
    
 if args.cycle_lens is not None:
