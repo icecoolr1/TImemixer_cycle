@@ -129,7 +129,7 @@ class Model(nn.Module):
             scales.append(down(scales[-1]))
         return [s.permute(0, 2, 1) for s in scales]
 
-    def forward(self, x_enc, x_mark_enc, phase_indices):
+    def forward(self, x_enc, x_mark_enc,dec_inp, batch_y_mark, phase_indices):
         # 多尺度处理
         x_scales = self._downsample(x_enc)
 
@@ -157,3 +157,6 @@ class Model(nn.Module):
             preds.append(pred)
 
         return sum(preds) / len(preds)
+
+    def _get_name(self):
+        return 'TimeMixerV2'

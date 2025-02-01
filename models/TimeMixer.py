@@ -378,6 +378,7 @@ class Model(nn.Module):
 
         # Future Multipredictor Mixing as decoder for future
         dec_out_list = self.future_multi_mixing(B, enc_out_list, x_list)
+        dec_out_list = self.future_multi_mixing(B, enc_out_list, x_list)
 
         dec_out = torch.stack(dec_out_list, dim=-1).sum(-1)
         dec_out = self.normalize_layers[0](dec_out, 'denorm')
