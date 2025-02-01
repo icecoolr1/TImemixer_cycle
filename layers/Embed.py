@@ -38,8 +38,9 @@ class TokenEmbedding(nn.Module):
                     m.weight, mode='fan_in', nonlinearity='leaky_relu')
 
     def forward(self, x):
-        x = self.tokenConv(x.permute(0, 2, 1)).transpose(1, 2)
-        return x
+        x = x.permute(0, 2, 1)  # 转换为[Batch, Channels, SeqLen]
+        x = self.tokenConv(x)  # 卷积处理后[Batch, d_model, SeqLen]
+        return x.transpose(1, 2)  # 输出形状[Batch, SeqLen, d_model]
 
 
 class FixedEmbedding(nn.Module):
